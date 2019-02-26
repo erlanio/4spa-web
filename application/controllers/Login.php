@@ -20,35 +20,31 @@ class Login extends CI_Controller {
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
-
+        $this->load->view('header');
         $this->load->view('login');
-        $this->load->view('footer');
+
     }
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('Model_Api', 'api');
+        $this->load->model('Model_Login', 'login');
         $this->load->model('Model_Pessoa', 'pessoa');
     }
 
     public function logar() {
 
         $email = $this->input->post('email');
-        $password = md5($this->input->post('senha'));
+        $password = $this->input->post('senha');
 
-        $usuario = $this->pessoa->retornaEmailSenha($email, $password);
 
-        if ($usuario) {
+        if ($this->login->logar($email, $password) > 0) {
             $dados = $this->pessoa->retornaEmailSenha($email, $password);
             $registro = array('usuario' => $dados[0], 'usuario_logado' => true);
             $this->session->set_userdata($registro);
-            redirect(base_url('admin/Inscricoes'));
+            echo 1;
         } else {
-            echo "<script>"
-            . "window.location.href = '"
-            . base_url('Login')
-            . "';"
-            . "alert('Email ou senha incorretos!');"
-            . "</script>";
+            echo 2;
         }
     }
 

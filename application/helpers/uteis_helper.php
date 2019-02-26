@@ -105,7 +105,7 @@ function enviar_email($destinatarios, $assunto, $corpo, $anexo = null, $responsa
     $config['smtp_port'] = '465';
     $config['smtp_timeout'] = '30';
     $config['smtp_user'] = 'erlanio.freire@urca.br';
-    $config['smtp_pass'] = 'kurtcobain';
+    $config['smtp_pass'] = '**************';
     $config['newline'] = "\r\n";
 
 
@@ -165,6 +165,10 @@ function inserirImagens($pasta, $tipoArquivos, $input) {
         echo "Selecione uma imagem";
         exit;
     }
+}
+
+function removerMascara($string) {
+    return preg_replace("/\D+/", "", $string);
 }
 
 /* End of file site_helper.php */

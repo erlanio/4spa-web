@@ -1,116 +1,72 @@
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
-
-    <!-- /.navbar-header -->
-    <ul class="nav-link-topo navbar-top-links navbar-left">
-        <li>
-            <img src="<?php echo base_url('assets/img/brasao.png'); ?> " class="img-responsive brasao">            
-        </li>
-    </ul>  
-
-    <ul class="nav-link-topo navbar-top-links navbar-right">
-
-        <li class="dropdown">
-            <a style="color: #fff;" class="dropdown-toggle" data-toggle="dropdown" href="#"> 
-                <i class="glyphicon glyphicon-user"></i> 
-                <?php echo $this->session->userdata('usuario')->nome ?>
-                <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">			
-                <li>
-                    <a href="<?php echo base_url('login/logout'); ?>">
-                        <i class="glyphicon glyphicon-log-out"></i> Sair
-                    </a>
-                </li>
-            </ul> 
-        </li>
-        <!-- /.dropdown -->
-    </ul>
-
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li><a href="<?php echo base_url('admin/Inscricoes'); ?>" data-toggle="collapse" data-target="#inicio"> 
-                        <i class="glyphicon glyphicon-home"></i> Início / Home </a>
-                </li>
-
-                <li><a href="<?php echo base_url('Pessoa/dadosPessoais/'); ?>" data-toggle="collapse" data-target="#meusDados"> 
-                        <i class="glyphicon glyphicon-user"></i> Meus Dados </a>
-                </li>
-
-                <li><a href="<?php echo base_url('admin/evento'); ?>" data-toggle="collapse" data-target="#realizarInscricao"> 
-                        <i class="glyphicon glyphicon-search"></i> Meus Certificados </a>
-                </li>				
-
-
-
-
-                <?php
-                $nivel_usuario = $this->session->userdata('usuario')->nivel_usuario;
-                $conv_aval = $this->session->userdata('usuario')->conv_aval;
-
-
-
-                if ($nivel_usuario == 1) {
-                ?>
-
-                <li>
-                    <a href="<?php echo base_url('admin/avaliacao'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-file"></i> Avaliaçao de Trabalhos </a>
-                </li>
-                <?php } ?>
-                <?php if ($nivel_usuario == 2) { ?>
-
-                <li>
-                    <a href="<?php echo base_url('admin/avaliacao'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-file"></i> Avaliaçao de Trabalhos </a>
-                </li>
-
-                <li>
-                    <a href="<?php echo base_url('admin/relatorios'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-cog"></i> Administrar Eventos </a>
-                </li>
-                <?php
-                }
-                ?>
-
-                <?php if ($nivel_usuario == 3) { ?>
+<!-- Side Navbar -->
+<nav class="side-navbar verde">
+    <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <!-- User Info-->
+            <div class="sidenav-header-inner text-center"><img src="<?php echo base_url('assets/img/4spa-logo.png'); ?>" alt="icone" class="img-fluid rounded-circle">
+                <h2 class="h5">4SPA</h2><span></span>
+            </div>
+            <!-- Small Brand information, appears on minimized sidebar-->
+            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <img src="<?php echo base_url('assets/img/4spa-logo.png'); ?>" alt="icone" class="img-fluid rounded-circle"></div>
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+            <h5 class="sidenav-heading">4SPA</h5>
+            <ul id="side-main-menu" class="side-menu list-unstyled">                  
+                <li><a href="<?php echo base_url('Home'); ?>"><i class="icon-home"></i>Início</a></li>
+                <li><a href="<?php echo base_url('Pessoa/dados'); ?>"><i class="icon-user"></i>Meus Dados</a></li>            
+                <li><a href="<?php echo base_url('Projeto'); ?>"><i class="icon-page"></i>Projetos</a></li>               
                 
-                 <li>
-                    <a href="<?php echo base_url('admin/avaliacao'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-file"></i> Avaliaçao de Trabalhos </a>
-                </li>
-
-                <li>
-                    <a href="<?php echo base_url('admin/relatorios'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-cog"></i> Administrar Eventos </a>
-                </li>
-                
-                
-                <li>
-                    <a href="<?php echo base_url('admin/solicitacoes'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-cog"></i> Solicitações de Eventos </a>
-                </li>
-                
-                 <li>
-                    <a href="<?php echo base_url('admin/evento/cadastrar'); ?>" data-toggle="collapse" data-target="#recursoProvas"> 
-                        <i class="glyphicon glyphicon-cog"></i> Cadastro de Eventos </a>
-                </li>
-                <?php
-                }
-                ?>
-
-               
-                <li><a href="<?php echo base_url('Pessoa/formAlterarSenha'); ?>" data-toggle="collapse" data-target="#recursoIsencao"> 
-                        <i class="glyphicon glyphicon-star"></i> Alterar Senha </a>
-                </li>
-
-                <li><a href="<?php echo base_url('login/logout'); ?>" data-toggle="collapse" data-target="#sair"> 
-                        <i class="glyphicon glyphicon-log-out"></i> Sair </a>
-                </li>
+                    
+                         
             </ul>
         </div>
-        <!-- /.sidebar-collapse -->
-    </div>
 
-    <!-- /.navbar-static-side -->
+    </div>
 </nav>
+<div class="page ">
+    <!-- navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+                            <div class="brand-text d-none d-md-inline-block"><span>4SPA </span><strong class="text-primary"> School Physical Assessment</strong></div></a></div>
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+
+                        <!-- Messages dropdown-->
+                        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
+                            <ul aria-labelledby="notifications" class="dropdown-menu">
+                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="msg-body">
+                                            <h3 class="h5">Mensagens</h3><span>Menagenns</span><small>Texto</small>
+                                        </div></a></li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="msg-body">
+                                            <h3 class="h5">Mensagens</h3><span>Menagenns</span><small>Texto</small>
+                                        </div></a></li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="msg-body">
+                                            <h3 class="h5">Mensagens</h3><span>Menagenns</span><small>Texto</small>
+                                        </div></a></li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Ver todas as mensagens   </strong></a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <li class="nav-item"><a href="#" class="nav-link logout"> <span class="d-none d-sm-inline-block"><strong>Bem Vindo: </strong><?php echo $this->session->userdata('usuario')->nome; ?></span></a></li>
+                        <!-- Log out-->
+                        <li class="nav-item"><a href="<?php echo base_url('Login/logout'); ?>" class="nav-link logout"> <span class="d-none d-sm-inline-block">Sair</span><i class="fa fa-sign-out"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
